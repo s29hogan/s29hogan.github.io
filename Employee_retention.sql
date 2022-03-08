@@ -26,7 +26,6 @@ ORDER BY length_of_employment_years;
 SELECT 
 	e.emp_no,
     d.dept_name,
-    #count(e.emp_no) as number_of_people,
     round(DATEDIFF(de.to_date, e.hire_date)/365,0) AS length_of_employment_years
 FROM
     employees e
@@ -36,7 +35,6 @@ FROM
     departments d ON de.dept_no = d.dept_no
 WHERE
     de.to_date < '9999-01-01'
-#group by d.dept_name
 ORDER BY length_of_employment_years;
 
 # How old is this database? When was the date that the last person left?
